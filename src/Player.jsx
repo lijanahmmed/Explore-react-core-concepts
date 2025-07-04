@@ -1,7 +1,9 @@
 export default function Player({player}){
+    const {name, age} = player
     return(
-        <div>
-            <h4>Name : {player}</h4>
+        <div className="book">
+            <h4>Name : {name}</h4>
+            <h5>Age : {age}</h5>
         </div>
     )
 }

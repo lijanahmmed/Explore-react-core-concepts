@@ -43,5 +43,13 @@
 
 .student{
   border: 2px solid tomato;
+  padding: 10px;
   border-radius: 20px;
+  margin: 20px;
+}
+.device{
+  border: 2px solid blueviolet;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 10px;
 }

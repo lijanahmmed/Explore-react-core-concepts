@@ -1,13 +1,19 @@
 import './App.css'
 import Todo from './Todo'
-import Actor from './Actor';
-import Player from './Player';
 import BookStore from './BookStore';
+import Actors from './Actors';
+import Players from './Players';
 
 
 function App() {
   const actors = ['Shakib', 'Raj', 'Nisho', 'Shuvo'];
-  const players = ['Shakib', 'Tamim', 'Miraj', 'Das'];
+  const players = [
+    {name : 'Shakib' , age : 40},
+    {name : 'Tamim' , age : 42},
+    {name : 'jakir' , age : 30},
+    {name : 'Das' , age : 32},
+    {name : 'Miraj' , age : 28}
+  ];
   const books = [
     {name : 'Biology', price : 150},
     {name : 'Physics', price : 250},
@@ -20,20 +26,14 @@ function App() {
     <>
       <h2>Vite + React</h2>
       <Person></Person>
-      <Student name="Lijan" age='21'></Student>
-      <Device name= 'laptop' price= '50000'></Device>
       <Todo task='learn html' isDone= {true}></Todo>
       <Todo task='learn react' isDone= {false}></Todo>
-
-      {
-        actors.map(actor => <Actor name={actor}></Actor>)
-      }
+      <Student name="Lijan" age='21'></Student>
+      <Device name= 'laptop' price= '50000'></Device>
+      <Actors actors={actors}></Actors>
 
       <BookStore books={books}></BookStore>
-
-      {
-        players.map(player => <Player player={player}></Player>)
-      }
+      <Players players={players}></Players>
 
     </>
   )
@@ -59,7 +59,7 @@ function Student(props) {
 const {name, price} = {name: 'laptop', price: 50000}
 function Device({name, price}){
   return(
-    <div>
+    <div className='device'>
       <h2>This is device</h2>
       <h3>Name: {name}</h3>
       <h3>Price: {price}</h3>
