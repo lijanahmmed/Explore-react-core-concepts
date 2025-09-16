@@ -67,7 +67,6 @@ This is not just a demo but a **learning playground for React fundamentals**.
 
 ---
 
-
 ## Live Link 
 
 [https://explore-react-core-concepts.netlify.app/](https://explore-react-core-concepts.netlify.app/)
