@@ -103,13 +103,5 @@ function Device({ name, price }) {
   )
 }
 
-// function Lijan({department, semester}) {
-//   return (
-//     <div className='student'>
-//       <h2>Department : {department}</h2>
-//       <p>Semester : {semester}</p>
-//     </div>
-//   )
-// }
 
 export default App
