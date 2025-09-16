@@ -10,18 +10,18 @@ import Users from './Users';
 function App() {
   const actors = ['Shakib', 'Raj', 'Nisho', 'Shuvo'];
   const players = [
-    {name : 'Shakib' , age : 40},
-    {name : 'Tamim' , age : 42},
-    {name : 'jakir' , age : 30},
-    {name : 'Das' , age : 32},
-    {name : 'Miraj' , age : 28}
+    { name: 'Shakib', age: 40 },
+    { name: 'Tamim', age: 42 },
+    { name: 'jakir', age: 30 },
+    { name: 'Das', age: 32 },
+    { name: 'Miraj', age: 28 }
   ];
   const books = [
-    {name : 'Biology', price : 150},
-    {name : 'Physics', price : 250},
-    {name : 'Chemistry', price : 500},
-    {name : 'Mtah', price : 450},
-    {name : 'English', price : 350}
+    { id: 1, name: 'Biology', price: 150 },
+    { id: 2, name: 'Physics', price: 250 },
+    { id: 3, name: 'Chemistry', price: 500 },
+    { id: 4, name: 'Math', price: 450 },
+    { id: 5, name: 'English', price: 350 }
   ];
 
 
@@ -32,10 +32,11 @@ function App() {
 
       <Person></Person>
       <hr />
-      <Todo task='Learn HTML' isDone= {true}></Todo>
-      <Todo task='Learn React' isDone= {false}></Todo>
-      <Student name="Lijan" age='21'></Student>
-      <Device name= 'laptop' price= '50000'></Device>
+      <Todo task='Learn HTML' isDone={true}></Todo>
+      <Todo task='Learn React' isDone={false}></Todo>
+      <Student name="Lijan" age='21' department="CSE" semester="6th"></Student>
+      {/* <Lijan department="CSE" semester="6th"></Lijan> */}
+      <Device name='laptop' price='50000'></Device>
       <Actors actors={actors}></Actors>
 
       <BookStore books={books}></BookStore>
@@ -53,7 +54,7 @@ function App() {
   )
 }
 
-function handleClick(){
+function handleClick() {
   alert('button clicked')
 }
 const handleClickAgain = (num) => {
@@ -63,23 +64,25 @@ const handleClickAgain = (num) => {
 function Person() {
   const age = 21;
   const money = 100;
-  const person = { name: 'Lijan', address: 'Dhaka'}
+  const person = { name: 'Lijan', address: 'Dhaka' }
   return <h3>I am {person.name} with age : {age}. I live in {person.address}. I have {money}Tk </h3>
 }
 
-function Student(props) {
+function Student({name, age, department, semester}) {
   return (
     <div className='student'>
       <h3>This is student</h3>
-      <h4>Name: {props.name}</h4>
-      <h4>age: {props.age}</h4>
+      <h4>Name: {name}</h4>
+      <h4>age: {age}</h4>
+      <h4>Department : {department}</h4>
+      <h4>Semester : {semester}</h4>
     </div>
   )
 }
 
-const {name, price} = {name: 'laptop', price: 50000}
-function Device({name, price}){
-  return(
+// const {name, price} = {name: 'laptop', price: 50000}
+function Device({ name, price }) {
+  return (
     <div className='device'>
       <h2>This is device</h2>
       <h3>Name: {name}</h3>
@@ -87,5 +90,14 @@ function Device({name, price}){
     </div>
   )
 }
+
+// function Lijan({department, semester}) {
+//   return (
+//     <div className='student'>
+//       <h2>Department : {department}</h2>
+//       <p>Semester : {semester}</p>
+//     </div>
+//   )
+// }
 
 export default App
