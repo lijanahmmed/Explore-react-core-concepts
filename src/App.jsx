@@ -5,6 +5,7 @@ import Actors from './Actors';
 import Players from './Players';
 import Counter from './Counter';
 import Users from './Users';
+import Batsman from './Batsman';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
 
       <BookStore books={books}></BookStore>
       <Players players={players}></Players>
+      <Batsman></Batsman>
 
 
       <button onClick={handleClick}>Click me</button>
