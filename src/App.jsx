@@ -6,9 +6,18 @@ import Players from './Players';
 import Counter from './Counter';
 import Users from './Users';
 import Batsman from './Batsman';
+import { Suspense } from 'react';
+import Posts from './Posts';
+
+const fetchPosts = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  return res.json();
+}
 
 
 function App() {
+  const fetchPromise = fetchPosts();
+
   const actors = ['Shakib', 'Raj', 'Nisho', 'Shuvo'];
   const players = [
     { name: 'Shakib', age: 40 },
@@ -26,7 +35,6 @@ function App() {
   ];
 
 
-
   return (
     <>
       <h1>Explore React Core Concepts</h1>
@@ -36,7 +44,6 @@ function App() {
       <Todo task='Learn HTML' isDone={true}></Todo>
       <Todo task='Learn React' isDone={false}></Todo>
       <Student name="Lijan" age='21' department="CSE" semester="6th"></Student>
-      {/* <Lijan department="CSE" semester="6th"></Lijan> */}
       <Device name='laptop' price='50000'></Device>
       <Actors actors={actors}></Actors>
 
@@ -51,6 +58,9 @@ function App() {
 
       <Counter></Counter>
       <Users></Users>
+      <Suspense fallback={<h3>Posts are loading...</h3>}>
+        <Posts fetchPromise={fetchPromise}></Posts>
+      </Suspense>
 
     </>
   )
@@ -70,7 +80,7 @@ function Person() {
   return <h3>I am {person.name} with age : {age}. I live in {person.address}. I have {money}Tk </h3>
 }
 
-function Student({name, age, department, semester}) {
+function Student({ name, age, department, semester }) {
   return (
     <div className='student'>
       <h3>This is student</h3>
